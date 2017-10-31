@@ -1,5 +1,5 @@
 //
-//  RegisterViewController.swift
+//  LoginViewController.swift
 //  Group5Alpha
 //
 //  Created by Daniel Pimentel on 10/30/17.
@@ -10,27 +10,17 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class RegisterViewController: UIViewController {
-
-    // @IBOutlet weak var firstNameField: UITextField!
-    
-    // @IBOutlet weak var lastNameField: UITextField!
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
-    
-    // @IBOutlet weak var birthdayField: UITextField!
-    
+
     @IBOutlet weak var passwordField: UITextField!
 
-    @IBOutlet weak var confirmedPasswordField: UITextField!
-    
-    
-    @IBOutlet weak var errorLabel: UILabel!
-    
+    var alertController: UIAlertController? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
- 
+
         // Do any additional setup after loading the view.
     }
 
@@ -50,32 +40,45 @@ class RegisterViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func createButton(_ sender: AnyObject) {
+    @IBAction func loginButton(_ sender: AnyObject) {
         if emailField.text == "" || passwordField.text == "" {
             
-            errorLabel.text = "Enter a value for all of the fields."
+            // Alert
+            let alertController = UIAlertController(title: "Error", message: "Enter a value for both fields.", preferredStyle: UIAlertControllerStyle.alert)
             
+            // Create "OK" button action
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alertController.addAction(OKAction)
+            
+            self.present(self.alertController!, animated: true, completion: nil)
+ 
         } else {
             
-            Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
-                
+            Auth.auth().signIn(withEmail: self.emailField.text!, password: self.passwordField.text!) { (user, error) in
                 if error == nil {
                     
-                    print("You have successfully signed up")
-                    
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-                    self.present(vc!, animated: true, completion: nil)
-                    
+                    //Print into the console if successfully logged in
+                    print("You have successfully logged in")
+            
                 } else {
                     
-                    self.errorLabel.text = "Error: " + (error?.localizedDescription)!
-                
+                    // Alert
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    // Create "OK" button action
+                    let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    
+                    alertController.addAction(OKAction)
+                    
+                    self.present(self.alertController!, animated: true, completion: nil)
+                    
                 }
             }
+            
         }
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -87,5 +90,3 @@ class RegisterViewController: UIViewController {
     */
 
 }
-    
-
