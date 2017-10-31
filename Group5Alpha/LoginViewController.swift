@@ -15,12 +15,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
 
     @IBOutlet weak var passwordField: UITextField!
-    
+
+    var alertController: UIAlertController? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,95 +40,44 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    var users = [NSManagedObject]()
-
-    @IBAction func loginButton(_ sender: Any) {
+    @IBAction func loginButton(_ sender: AnyObject) {
         if emailField.text == "" || passwordField.text == "" {
             
+            // Alert
+            let alertController = UIAlertController(title: "Error", message: "Enter a value for both fields.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // Create "OK" button action
+            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alertController.addAction(OKAction)
+            
+            self.present(self.alertController!, animated: true, completion:nil)
+ 
         } else {
-            for item in users{
-                if item.value(forKey: "email")! ==  emailField.text {
-                    print(item.value(forKey: "birthday")!)
-                    print(item.value(forKey: "email")!)
-                    print(item.value(forKey: "firstName")!)
-                    print(item.value(forKey: "password")!)
+            
+            Auth.auth().signIn(withEmail: self.emailField.text!, password: self.passwordField.text!) { (user, error) in
+                if error == nil {
+                    
+                    //Print into the console if successfully logged in
+                    print("You have successfully logged in")
+            
+                } else {
+                    
+                    // Alert
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    // Create "OK" button action
+                    let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    
+                    alertController.addAction(OKAction)
+                    
+                    self.present(self.alertController!, animated: true, completion:nil)
+                    
                 }
             }
-            //if checkUsernamePasswordMatch(email: emailField.text!, password: passwordField.text!) == true {
-            /*
-            for user in users {
-                data = user.data*/
+            
         }
     }
-    }
-    
-    /*
-    func checkUsernamePasswordMatch(email : String, password : String) ->Bool
-    {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"User")
-        
-        var fetchedResults:[NSManagedObject]? = nil
-        
-        
-        
-        do {
-            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
-        }
-        catch {
-            // Error handler
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
-        
-        if let results = fetchedResults {
-            users = results
-        }
-        else {
-            print("Could not fetch")
-        }
-        
-        print("FIRST")
-        print(users)
-        
-        print("SECOND")
-        for user in users {
-            print(user)
-        }
- 
-        return true
-    }
-    */
-
-    func loadData() -> [NSManagedObject] {
-        
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"User")
-        
-        var fetchedResults:[NSManagedObject]? = nil
-        
-        do {
-            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
-        } catch {
-            // Error handler
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
-        
-        if let results = fetchedResults {
-            return results
-        } else {
-            print("Could not fetch")
-        }
-}
     
     /*
     // MARK: - Navigation
@@ -139,4 +89,4 @@ class LoginViewController: UIViewController {
     }
     */
 
-
+}
