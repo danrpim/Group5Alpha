@@ -20,6 +20,7 @@
 		81D0CADF1FA6863100F99408 /* NewMemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D0CADE1FA6863100F99408 /* NewMemoryViewController.swift */; };
 		81D0CAE11FA7F95A00F99408 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D0CAE01FA7F95A00F99408 /* LoginViewController.swift */; };
 		81D0CAE31FA7FA3100F99408 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D0CAE21FA7FA3100F99408 /* RegisterViewController.swift */; };
+		81E9BEDF1FA90FD700E76A19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81E9BEDE1FA90FD700E76A19 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		81D0CADE1FA6863100F99408 /* NewMemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoryViewController.swift; sourceTree = "<group>"; };
 		81D0CAE01FA7F95A00F99408 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		81D0CAE21FA7FA3100F99408 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		81E9BEDE1FA90FD700E76A19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				81D0CAAC1FA3D33100F99408 /* LaunchScreen.storyboard */,
 				81D0CAD11FA67FCF00F99408 /* DataModel.xcdatamodeld */,
 				81D0CAAF1FA3D33100F99408 /* Info.plist */,
+				81E9BEDE1FA90FD700E76A19 /* GoogleService-Info.plist */,
 			);
 			path = Group5Alpha;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81D0CAAE1FA3D33100F99408 /* LaunchScreen.storyboard in Resources */,
+				81E9BEDF1FA90FD700E76A19 /* GoogleService-Info.plist in Resources */,
 				81D0CAAB1FA3D33100F99408 /* Assets.xcassets in Resources */,
 				81D0CAA91FA3D33100F99408 /* Main.storyboard in Resources */,
 			);
