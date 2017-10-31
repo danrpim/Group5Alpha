@@ -119,8 +119,8 @@
 				81D0CAA71FA3D33100F99408 /* Main.storyboard */,
 				81D0CAAA1FA3D33100F99408 /* Assets.xcassets */,
 				81D0CAAC1FA3D33100F99408 /* LaunchScreen.storyboard */,
-				81D0CAAF1FA3D33100F99408 /* Info.plist */,
 				81D0CAD11FA67FCF00F99408 /* DataModel.xcdatamodeld */,
+				81D0CAAF1FA3D33100F99408 /* Info.plist */,
 			);
 			path = Group5Alpha;
 			sourceTree = "<group>";

@@ -12,7 +12,7 @@
         <!--Login-->
         <scene sceneID="NZ2-FA-b7b">
             <objects>
-                <viewController title="Login" id="lkF-BN-dpk" customClass="ViewController" customModule="Group5Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Login" id="lkF-BN-dpk" customClass="LoginViewController" customModule="Group5Alpha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xH6-z9-rLE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,6 +51,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="LOGIN"/>
                                 <connections>
+                                    <action selector="loginButton:" destination="lkF-BN-dpk" eventType="touchUpInside" id="Zq9-67-dp2"/>
                                     <segue destination="3Yw-kt-UG4" kind="show" id="KMh-jj-Yj4"/>
                                 </connections>
                             </button>
@@ -79,8 +80,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="VJL-4e-XLK"/>
                     <connections>
-                        <outlet property="emailField" destination="qhH-Se-3US" id="OOA-ia-04x"/>
-                        <outlet property="passwordField" destination="p5x-Yv-XUu" id="ebq-JU-lbw"/>
+                        <outlet property="emailField" destination="qhH-Se-3US" id="erb-I3-MdT"/>
+                        <outlet property="passwordField" destination="p5x-Yv-XUu" id="aeT-hz-SZ0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="19k-TB-zZt" sceneMemberID="firstResponder"/>

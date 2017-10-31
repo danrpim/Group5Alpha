@@ -111,7 +111,6 @@ class RegisterViewController: UIViewController {
         // Commit the changes
         do {
             try managedContext.save()
-            print(user)
         }
         catch {
             // Error handler
@@ -122,31 +121,6 @@ class RegisterViewController: UIViewController {
         
         // Add the new entity to our array of managed objects
         users.append(user)
-    }
-    
-    fileprivate func loadData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"User")
-        
-        var fetchedResults:[NSManagedObject]? = nil
-        
-        do {
-            try fetchedResults = managedContext.fetch(fetchRequest) as? [NSManagedObject]
-        } catch {
-            // Error handler
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
-        
-        if let results = fetchedResults {
-            users = results
-        } else {
-            print("Could not fetch")
-        }
     }
     
 
