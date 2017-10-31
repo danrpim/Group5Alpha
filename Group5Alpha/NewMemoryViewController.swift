@@ -12,9 +12,9 @@ class NewMemoryViewController: UIViewController {
 
     @IBOutlet weak var memoryTextField: UITextField!
     
-    var date : Date
+    let date : String = ""
     
-    var emotion : String = ""
+    let emotion : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
