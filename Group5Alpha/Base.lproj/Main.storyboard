@@ -29,7 +29,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCy-0o-CMh">
                                 <rect key="frame" x="23" y="252" width="110" height="21"/>
@@ -52,7 +52,6 @@
                                 <state key="normal" title="LOGIN"/>
                                 <connections>
                                     <action selector="loginButton:" destination="lkF-BN-dpk" eventType="touchUpInside" id="Zq9-67-dp2"/>
-                                    <segue destination="3Yw-kt-UG4" kind="show" id="KMh-jj-Yj4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMA-6e-iu1">
@@ -82,6 +81,7 @@
                     <connections>
                         <outlet property="emailField" destination="qhH-Se-3US" id="erb-I3-MdT"/>
                         <outlet property="passwordField" destination="p5x-Yv-XUu" id="aeT-hz-SZ0"/>
+                        <segue destination="3Yw-kt-UG4" kind="show" id="U5m-AF-kyf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="19k-TB-zZt" sceneMemberID="firstResponder"/>
@@ -103,7 +103,6 @@
                                 <state key="normal" title="CREATE"/>
                                 <connections>
                                     <action selector="createButton:" destination="WoV-q7-hZ9" eventType="touchUpInside" id="onJ-3N-HVm"/>
-                                    <segue destination="lkF-BN-dpk" kind="show" identifier="creationSuccess" id="DjP-Qk-aJm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03W-in-BLR">
@@ -171,11 +170,12 @@
                         <outlet property="emailField" destination="WrV-Id-AHt" id="1iU-pA-l1b"/>
                         <outlet property="errorLabel" destination="cGA-lw-Exj" id="wr3-HR-EcY"/>
                         <outlet property="passwordField" destination="ij6-Mr-Ha2" id="XNJ-pB-3F4"/>
+                        <segue destination="lkF-BN-dpk" kind="show" id="Dyj-Py-Yvd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iSJ-hu-KPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="440.80000000000001" y="986.35682158920542"/>
+            <point key="canvasLocation" x="441" y="970"/>
         </scene>
         <!--New Memory-->
         <scene sceneID="rBz-om-cvk">
@@ -235,7 +235,7 @@
         <!--Home-->
         <scene sceneID="y6U-WA-VRU">
             <objects>
-                <viewController title="Home" id="3Yw-kt-UG4" customClass="HomeViewController" customModule="Group5Alpha" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" title="Home" id="3Yw-kt-UG4" customClass="HomeViewController" customModule="Group5Alpha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ii2-03-xYg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -487,6 +487,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DjP-Qk-aJm"/>
+        <segue reference="qGC-rb-GxZ"/>
+        <segue reference="Dyj-Py-Yvd"/>
     </inferredMetricsTieBreakers>
 </document>

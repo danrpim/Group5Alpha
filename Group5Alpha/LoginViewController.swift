@@ -16,8 +16,6 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var passwordField: UITextField!
 
-    var alertController: UIAlertController? = nil
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,12 +45,11 @@ class LoginViewController: UIViewController {
             let alertController = UIAlertController(title: "Error", message: "Enter a value for both fields.", preferredStyle: UIAlertControllerStyle.alert)
             
             // Create "OK" button action
-            let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
             
-            alertController.addAction(OKAction)
-            
-            self.present(self.alertController!, animated: true, completion: nil)
- 
+            self.present(alertController, animated: true, completion: nil)
+
         } else {
             
             Auth.auth().signIn(withEmail: self.emailField.text!, password: self.passwordField.text!) { (user, error) in
@@ -60,18 +57,20 @@ class LoginViewController: UIViewController {
                     
                     //Print into the console if successfully logged in
                     print("You have successfully logged in")
+                    
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                    self.present(vc!, animated: true, completion: nil)
             
                 } else {
                     
                     // Alert
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     
                     // Create "OK" button action
-                    let OKAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
                     
-                    alertController.addAction(OKAction)
-                    
-                    self.present(self.alertController!, animated: true, completion: nil)
+                    self.present(alertController, animated: true, completion: nil)
                     
                 }
             }

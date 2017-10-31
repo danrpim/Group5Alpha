@@ -57,19 +57,26 @@ class RegisterViewController: UIViewController {
             
         } else {
             
-            Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
+            if passwordField.text != confirmedPasswordField.text {
+    
+                errorLabel.text = "Passwords do not match."
                 
-                if error == nil {
-                    
-                    print("You have successfully signed up")
-                    
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-                    self.present(vc!, animated: true, completion: nil)
-                    
-                } else {
-                    
-                    self.errorLabel.text = "Error: " + (error?.localizedDescription)!
+            } else {
                 
+                Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
+                    
+                    if error == nil {
+                        
+                        print("You have successfully signed up")
+                        
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+                        self.present(vc!, animated: true, completion: nil)
+                        
+                    } else {
+                        
+                        self.errorLabel.text = "Error: " + (error?.localizedDescription)!
+                        
+                    }
                 }
             }
         }
