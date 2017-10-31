@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
             
             alertController.addAction(OKAction)
             
-            self.present(self.alertController!, animated: true, completion:nil)
+            self.present(self.alertController!, animated: true, completion: nil)
  
         } else {
             
@@ -71,7 +71,7 @@ class LoginViewController: UIViewController {
                     
                     alertController.addAction(OKAction)
                     
-                    self.present(self.alertController!, animated: true, completion:nil)
+                    self.present(self.alertController!, animated: true, completion: nil)
                     
                 }
             }

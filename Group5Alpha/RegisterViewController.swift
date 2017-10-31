@@ -21,8 +21,9 @@ class RegisterViewController: UIViewController {
     // @IBOutlet weak var birthdayField: UITextField!
     
     @IBOutlet weak var passwordField: UITextField!
+
+    @IBOutlet weak var confirmedPasswordField: UITextField!
     
-    // @IBOutlet weak var passwordConfirmField: UITextField!
     
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -51,15 +52,24 @@ class RegisterViewController: UIViewController {
     
     @IBAction func createButton(_ sender: AnyObject) {
         if emailField.text == "" || passwordField.text == "" {
- 
+            
             errorLabel.text = "Enter a value for all of the fields."
             
         } else {
+            
             Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
+                
                 if error == nil {
+                    
                     print("You have successfully signed up")
+                    
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+                    self.present(vc!, animated: true, completion: nil)
+                    
                 } else {
+                    
                     self.errorLabel.text = "Error: " + (error?.localizedDescription)!
+                
                 }
             }
         }
