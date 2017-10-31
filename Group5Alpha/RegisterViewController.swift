@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import CoreData
+import FirebaseAuth
+import Firebase
 
 class RegisterViewController: UIViewController {
 
@@ -25,20 +26,11 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var errorLabel: UILabel!
     
-    var users = [NSManagedObject]()
-
     // var alertController: UIAlertController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
-        firstNameField.delegate = self
-        lastNameField.delegate = self
-        emailField.delegate = self
-        birthdayField.delegate = self
-        passwordField.delegate = self
-        */
  
         // Do any additional setup after loading the view.
     }
