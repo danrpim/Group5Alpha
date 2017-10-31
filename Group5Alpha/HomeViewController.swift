@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
 
 class HomeViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationItem.leftBarButtonItem = nil;
+        self.navigationItem.hidesBackButton = true;
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +25,22 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    @IBAction func logOutButton(_ sender: Any) {
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
+                present(vc, animated: true, completion: nil)
+                
+                print("You have succesfully logged out")
+                
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

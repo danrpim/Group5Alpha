@@ -8,7 +8,6 @@
 
 import UIKit
 
-/*
 class NewMemoryViewController: UIViewController {
 
     @IBOutlet weak var memoryTextField: UITextField!
@@ -39,4 +38,4 @@ class NewMemoryViewController: UIViewController {
     }
     */
 
- }*/
+ }

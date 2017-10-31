@@ -59,8 +59,8 @@ class LoginViewController: UIViewController {
                     print("You have successfully logged in")
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                    self.present(vc!, animated: true, completion: nil)
-            
+                    self.navigationController!.pushViewController(vc!, animated: true)
+
                 } else {
                     
                     // Alert
