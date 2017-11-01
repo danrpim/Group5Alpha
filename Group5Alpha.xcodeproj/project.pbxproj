@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		17F06F962CEC08E360AC1261 /* Pods_Group5AlphaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B9BD4DC5348EA6157B5806 /* Pods_Group5AlphaTests.framework */; };
+		812BB16A1FA95CD50001E85C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BB1691FA95CD50001E85C /* SettingsViewController.swift */; };
+		812BB16C1FA95FCE0001E85C /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812BB16B1FA95FCE0001E85C /* ResetPasswordViewController.swift */; };
 		812D4B921FA9436A006E425C /* RemNow Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 812D4B911FA9436A006E425C /* RemNow Logo.png */; };
 		812D4B941FA9461A006E425C /* Dooodleista.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 812D4B931FA94607006E425C /* Dooodleista.ttf */; };
 		81D0CAA41FA3D33100F99408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D0CAA31FA3D33100F99408 /* AppDelegate.swift */; };
@@ -48,6 +50,8 @@
 		49EAB40F6C3CE5FD4C0E09E3 /* Pods-Group5AlphaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Group5AlphaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Group5AlphaUITests/Pods-Group5AlphaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		60219F2AB18FB67A17D67E86 /* Pods-Group5Alpha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Group5Alpha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Group5Alpha/Pods-Group5Alpha.debug.xcconfig"; sourceTree = "<group>"; };
 		70158BC473FDF600FEB92D39 /* Pods_Group5AlphaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Group5AlphaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		812BB1691FA95CD50001E85C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		812BB16B1FA95FCE0001E85C /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		812D4B911FA9436A006E425C /* RemNow Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RemNow Logo.png"; path = "../../../../../../../../Downloads/RemNow Logo.png"; sourceTree = "<group>"; };
 		812D4B931FA94607006E425C /* Dooodleista.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Dooodleista.ttf; path = ../../../../../../../../Downloads/dooodleista/Dooodleista.ttf; sourceTree = "<group>"; };
 		81D0CAA01FA3D33100F99408 /* Group5Alpha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Group5Alpha.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,8 +159,10 @@
 			children = (
 				81D0CAE01FA7F95A00F99408 /* LoginViewController.swift */,
 				81D0CAE21FA7FA3100F99408 /* RegisterViewController.swift */,
+				812BB16B1FA95FCE0001E85C /* ResetPasswordViewController.swift */,
 				81D0CAD41FA6802D00F99408 /* HomeViewController.swift */,
 				81D0CADE1FA6863100F99408 /* NewMemoryViewController.swift */,
+				812BB1691FA95CD50001E85C /* SettingsViewController.swift */,
 				81D0CAD81FA683C400F99408 /* StandardViewTableViewController.swift */,
 				81D0CADC1FA685B100F99408 /* MemoryDetailViewController.swift */,
 				81D0CAA31FA3D33100F99408 /* AppDelegate.swift */,
@@ -497,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				812BB16C1FA95FCE0001E85C /* ResetPasswordViewController.swift in Sources */,
 				81D0CAE11FA7F95A00F99408 /* LoginViewController.swift in Sources */,
 				81D0CADD1FA685B100F99408 /* MemoryDetailViewController.swift in Sources */,
 				81D0CAE31FA7FA3100F99408 /* RegisterViewController.swift in Sources */,
@@ -504,6 +511,7 @@
 				81D0CAA41FA3D33100F99408 /* AppDelegate.swift in Sources */,
 				81D0CAD51FA6802D00F99408 /* HomeViewController.swift in Sources */,
 				81D0CAD91FA683C400F99408 /* StandardViewTableViewController.swift in Sources */,
+				812BB16A1FA95CD50001E85C /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
