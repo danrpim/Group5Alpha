@@ -1,11 +1,46 @@
 # Group5README
 
-1.Implementation Contributions: A list of the team members that shows each members overall contribution to this release and a list of what features/functions they worked on.
+## Implementation Contributions
 
-2.Grading Level: If the team agrees that all members should receive the same grade for this release, then say “Same grade for all members”. If not, identify the grade level for each member - 100% for a full grade, 90% for 90% of the full grade, etc.
+Daniel Pimentel: 55%
 
-3.Differences: Explanations of any differences between what is submitted for this release and what the App Idea Paper defined as being included in this release, and why that difference exists. If there are no deviances write None.
 
-4.Special Instructions:Any special instructions needed to make sure your app can be built and run. For example, if you use CocoaPods - the minimum version to use.
+-Implementated of login, logout, and register
 
+
+-Designed logo and UI experience
+
+
+Andrew Chen: 45%
+
+
+-Implemented password reset 
+
+
+-Model design and testing
+
+## Grading Level
+
+Daniel Pimentel: 100%
+
+
+Andrew Chen: 100%
+
+## Differences
+
+A member of our team dropped so we are now down to two. The features that we initially planned to implement may not be completed. The revised plan is as follows:
+
+### Alpha Phase:
+
+Account Authentication Features: login, logout, register, and reset password
+
+
+Branding: Design application logo
+
+
+UI/UX Design: Implemented simple user interface and flow. Constraints have been added to accommodate varying devices, resolutions, and aspect ratios.
+
+
+## Special Instructions
+The initial page is the login. It also includes actions to register for an account and request a password reset link. 
 
