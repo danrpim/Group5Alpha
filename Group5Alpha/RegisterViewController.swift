@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     // @IBOutlet weak var firstNameField: UITextField!
     
@@ -24,14 +24,15 @@ class RegisterViewController: UIViewController {
 
     @IBOutlet weak var confirmedPasswordField: UITextField!
     
-    
     @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
- 
         // Do any additional setup after loading the view.
+        emailField.delegate = self
+        passwordField.delegate = self
+        confirmedPasswordField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {

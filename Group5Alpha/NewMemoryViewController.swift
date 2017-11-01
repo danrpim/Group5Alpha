@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewMemoryViewController: UIViewController {
+class NewMemoryViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var memoryTextField: UITextField!
     
@@ -20,6 +20,7 @@ class NewMemoryViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        memoryTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +28,16 @@ class NewMemoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Dismiss keyboard when hitting return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Dismess keyboard by touching outside of it
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     /*
     // MARK: - Navigation

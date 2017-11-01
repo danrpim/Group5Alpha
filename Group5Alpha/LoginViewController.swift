@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailField: UITextField!
 
@@ -20,6 +20,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        emailField.delegate = self
+        passwordField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +57,6 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: self.emailField.text!, password: self.passwordField.text!) { (user, error) in
                 if error == nil {
                     
-                    //Print into the console if successfully logged in
                     print("You have successfully logged in")
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
