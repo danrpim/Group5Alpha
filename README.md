@@ -10,6 +10,7 @@ Daniel Pimentel: 55%
 
 -Designed logo and UI experience
 
+
 Andrew Chen: 45%
 
 
@@ -26,6 +27,18 @@ Daniel Pimentel: 100%
 Andrew Chen: 100%
 
 ## Differences
+
+A member of our team dropped so we are now down to two. The features that we initially planned to implement may not be completed. The revised plan is as follows:
+
+### Alpha Phase:
+
+Account Authentication Features: login, logout, register, and reset password
+
+
+Branding: Design application logo
+
+
+UI/UX Design: Implemented simple user interface and flow. Constraints have been added to accommodate varying devices, resolutions, and aspect ratios.
 
 
 ## Special Instructions
