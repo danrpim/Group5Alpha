@@ -1,6 +1,6 @@
 # Group5README
 
-###Implementation Contributions
+## Implementation Contributions
 
 Daniel Pimentel: 55%
 -Implementated of login, logout, and register
@@ -10,14 +10,14 @@ Andrew Chen: 45%
 -Implemented password reset 
 -Model design and testing
 
-### Grading Level
+## Grading Level
 
 Daniel Pimentel: 100%
 Andrew Chen: 100%
 
-### Differences
+## Differences
 
 
-### Special Instructions
+## Special Instructions
 The initial page is the login. It also includes actions to register for an account and request a password reset link. 
 
