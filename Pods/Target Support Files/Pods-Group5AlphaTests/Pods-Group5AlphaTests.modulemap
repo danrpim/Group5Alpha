@@ -1,0 +1,6 @@
+framework module Pods_Group5AlphaTests {
+  umbrella header "Pods-Group5AlphaTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
