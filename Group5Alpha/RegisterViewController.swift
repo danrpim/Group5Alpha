@@ -69,9 +69,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                     if error == nil {
                         
                         print("You have successfully signed up")
-                        
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-                        self.present(vc!, animated: true, completion: nil)
+
+                        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
+                        self.navigationController!.pushViewController(vc, animated: true)
                         
                     } else {
                         

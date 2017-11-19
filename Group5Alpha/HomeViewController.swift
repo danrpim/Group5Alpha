@@ -31,7 +31,9 @@ class HomeViewController: UIViewController {
             do {
                 try Auth.auth().signOut()
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
-                present(vc, animated: true, completion: nil)
+                self.navigationController!.pushViewController(vc, animated: true)
+                
+                // present(vc, animated: true, completion: nil)
                 
                 print("You have succesfully logged out")
                 

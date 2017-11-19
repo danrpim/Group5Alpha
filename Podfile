@@ -7,6 +7,7 @@ target 'Group5Alpha' do
   # Pods for FirebaseTutorial1
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 
   # Pods for Group5Alpha
 

@@ -22,6 +22,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         emailField.delegate = self
         passwordField.delegate = self
+        
+        // Do any additional setup after loading the view.
+        self.navigationItem.leftBarButtonItem = nil;
+        self.navigationItem.hidesBackButton = true;
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +65,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     print("You have successfully logged in")
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                    // issue with navigation controller inheritance causes crash b/c null VC
                     self.navigationController!.pushViewController(vc!, animated: true)
 
                 } else {
