@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import MediaPlayer
+import CoreLocation
 
-class NewMemoryViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class NewMemoryViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
 
     @IBOutlet weak var memoryTextField: UITextField!
     
@@ -20,14 +24,33 @@ class NewMemoryViewController: UIViewController, UITextFieldDelegate, UIPickerVi
     
     var emotion = ["Happy", "Excited", "Nervous", "Anxious", "Angry", "Frustrated", "Tired",  "Annoyed"]
     
+    var refMemories: DatabaseReference? = nil
+    
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
         memoryTextField.delegate = self
-
-        self.dropdownList.dataSource = self;
-        self.dropdownList.delegate = self;
+        
+        self.dropdownList.dataSource = self
+        self.dropdownList.delegate = self
+        
+        refMemories = Database.database().reference(withPath: "memories")
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,7 +103,100 @@ class NewMemoryViewController: UIViewController, UITextFieldDelegate, UIPickerVi
         
     }
     
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        
+        /*
+        var longitude = locationManager.location?.coordinate.longitude
+        
+        var latitude = locationManager.location?.coordinate.latitude
+        
+        
+        var location = CLLocation(latitude: latitude, longitude: longitude)
+        print(location)
+        
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+            println(location)
+            
+            if error != nil {
+                println("Reverse geocoder failed with error" + error.localizedDescription)
+                return
+            }
+            
+            if placemarks.count > 0 {
+                let pm = placemarks[0] as! CLPlacemark
+                println(pm.locality)
+            }
+            else {
+                println("Problem with the data received from geocoder")
+            }
+        })
+ 
+        let aGMSGeocoder: GMSGeocoder = GMSGeocoder()
+        aGMSGeocoder.reverseGeocodeCoordinate(CLLocationCoordinate2DMake(self.latitude, self.longitude)) {
+            (let gmsReverseGeocodeResponse: GMSReverseGeocodeResponse!, let error: NSError!) -> Void in
+            
+            let gmsAddress: GMSAddress = gmsReverseGeocodeResponse.firstResult()
+            print("\ncoordinate.latitude=\(gmsAddress.coordinate.latitude)")
+            print("coordinate.longitude=\(gmsAddress.coordinate.longitude)")
+            print("thoroughfare=\(gmsAddress.thoroughfare)")
+            print("locality=\(gmsAddress.locality)")
+            print("subLocality=\(gmsAddress.subLocality)")
+            print("administrativeArea=\(gmsAddress.administrativeArea)")
+            print("postalCode=\(gmsAddress.postalCode)")
+            print("country=\(gmsAddress.country)")
+            print("lines=\(gmsAddress.lines)")
+        }
+ 
+         */
+        
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+    }
+    
     @IBAction func createMemory(_ sender: Any) {
+        
+        // get the current date and time
+        let currentDateTime = Date()
+        
+        // initialize the date formatter and set the style
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = .long
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = .short
+        timeFormatter.dateStyle = .none
+        
+        // get the date string from the date object
+        let date = dateFormatter.string(from: currentDateTime) // October 8, 2016
+        // get the time string from the date object
+        let time = timeFormatter.string(from: currentDateTime) // 10:48 PM
+        
+        print(date)
+        
+        print(time)
+        
+        print(locationManager.location ?? "none")
+        
+        var music = ""
+        
+        let songArtist = MPMusicPlayerController().nowPlayingItem?.albumArtist ?? "none"
+        let songTitle = MPMusicPlayerController().nowPlayingItem?.title ?? "none"
+        
+        if songArtist == "none" && songTitle == "none" {
+            music = "No Music"
+        } else {
+            music = songTitle + " by " + songArtist
+        }
+        
+        let key = self.refMemories?.childByAutoId().key
+        
+        let memory = ["id": key!, "description": self.memoryTextField.text!, "emotion": self.emotionTextField.text!, "music": music, "userEmail": Auth.auth().currentUser?.email, "location": locationManager.location.debugDescription]
+        
+        self.refMemories?.child(key!).setValue(memory)
+
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+        self.navigationController!.pushViewController(vc!, animated: true)
         
     }
     

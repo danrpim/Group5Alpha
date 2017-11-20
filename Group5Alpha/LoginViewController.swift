@@ -65,7 +65,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     print("You have successfully logged in")
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                    // issue with navigation controller inheritance causes crash b/c null VC
                     self.navigationController!.pushViewController(vc!, animated: true)
 
                 } else {

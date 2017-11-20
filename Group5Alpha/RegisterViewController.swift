@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import FirebaseDatabase
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
 
@@ -26,13 +27,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var errorLabel: UILabel!
     
+    var refUsers: DatabaseReference? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refUsers = Database.database().reference(withPath: "users")
+
         // Do any additional setup after loading the view.
         emailField.delegate = self
         passwordField.delegate = self
         confirmedPasswordField.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +57,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    
+    
     @IBAction func createButton(_ sender: AnyObject) {
         if emailField.text == "" || passwordField.text == "" {
             
@@ -68,7 +76,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                     
                     if error == nil {
                         
-                        print("You have successfully signed up")
+                        let key = self.refUsers?.childByAutoId().key
+                        
+                        let user = ["id": key, "email": self.emailField.text!]
+                        
+                        self.refUsers?.child(key!).setValue(user)
+                        
+                        print("User created. Sign up successful.")
 
                         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
                         self.navigationController!.pushViewController(vc, animated: true)
